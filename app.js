@@ -5,12 +5,13 @@ const s3 = new aws.S3();
 
 const getParams = {
   Bucket: 'packet-melina-s3-bucket',
-  Key: 'packet-melina-s3-buckect.txt'
+  Key: 'packet-test-file.txt'
 }
 
 app.get('/', function (req, res) {
   s3.getObject(getParams, function(err, data){
-    if(err) return err;
+    if(err) 
+      return err;
 
     let objectData = data.Body.toString('utf-8');
     res.send(objectData);
